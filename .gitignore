@@ -2,3 +2,4 @@ client
 node_modules
 keep.jpg
 package-lock.json
+build

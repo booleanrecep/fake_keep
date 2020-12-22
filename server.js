@@ -33,11 +33,11 @@ app.use("/notes",  require("./routes/notes"));
 // app.get("/", (req, res) => {
 //   res.send("<h2>Hüloğğğ</h2>");
 // });
-if(process.env.PORT==="production"){
+// if(process.env.PORT==="production"){
   app.use(express.static("build"))
   app.get("*",(req,res)=>{
     res.sendFile(path.resolve(__dirname,"build","index.html"))
   })
-}
+// }
 
 app.listen(PORT, console.log("Listening : ", PORT));
