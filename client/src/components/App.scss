@@ -1,0 +1,167 @@
+@import "~bootstrap/scss/bootstrap";
+@mixin fontType {
+  font-family: "Roboto", sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
+  font-style: normal;
+}
+$desktopBP: "screen and (min-width : 1024px)";
+$tabletBP: "screen and (max-width : 1024px)";
+$mobileBP: "screen and (max-width : 360px)";
+$desktopWidth: 25%;
+$tabletWidth: 60%;
+$mobileWidth: 90%;
+
+@mixin titleFont {
+  font-size: 1.1em;
+  color: #7c7a7a;
+}
+@mixin descFont {
+  font-size: 1em;
+  color: #999496;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  // overflow: hidden;
+}
+
+.App {
+  background: url("./banner.png");
+  background-size: 100% 100%;
+}
+
+.add-note-bar {
+  border-radius: 3px;
+  box-shadow: 0 0 5px 1px #c8c8c9;
+  position: absolute;
+  top: 6em;
+  left: 33%;
+  padding: 1em;
+  display: block;
+  outline: none;
+  border: none;
+  @include fontType;
+
+  height: auto;
+  @media #{$desktopBP} {
+    width: $desktopWidth;
+  }
+  @media #{$tabletBP} {
+    width: $tabletWidth;
+    left: 20%;
+  }
+  @media #{$mobileBP} {
+    width: $mobileWidth;
+    left: 2%;
+  }
+
+  .title {
+    outline: none;
+    border: none;
+    margin: 0 0 1em 0;
+    @include titleFont;
+  }
+  .desc {
+    @include descFont;
+  }
+  .desc:focus {
+    outline: none;
+    border: none;
+  }
+
+  .bottom-tools {
+    position: relative;
+    bottom: 0em;
+    right: 0em;
+    margin: 1em 0 0 80%;
+    width: 7em;
+    svg {
+      width: 1.3em;
+      height: 1.3em;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+    svg:first-of-type {
+      color: #1a91da;
+    }
+    svg:last-of-type {
+      margin-left: 1em;
+      color: hsl(113, 71%, 51%);
+    }
+  }
+}
+.material-icons {
+  background: none;
+  color: none;
+}
+
+.popover-body {
+  justify-content: center;
+  text-align: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  svg {
+    border-radius: 50px;
+    border: none;
+    outline: none;
+
+    stroke-width: 0px;
+    width: 2.5em;
+    height: 2.5em;
+    cursor: pointer;
+    margin: 0.2em;
+    &:hover {
+      border: 1px solid hsl(0, 1%, 15%);
+    }
+  }
+}
+#note-container {
+  position: absolute;
+  top: 16em;
+  left: 0;
+  height: 60vh;
+  width: 100vw;
+  justify-content: space-around;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin: 0em;
+  padding: 0em;
+  padding-top: 0.5em;
+  row-gap: 1em;
+  background-color: #316a8e;
+  @media #{$mobileBP} {
+    grid-template-columns: auto;
+  }
+  .note-card {
+    position: relative;
+    top: 0em;
+    left: 0em;
+    margin-top: 0em;
+    padding-top: 0em;
+    .add-note-bar {
+      box-shadow: 0 0 0 0 #c8c8c9;
+      border-radius: 0.5em;
+      width: 300px;
+      position: relative;
+      top: 0em;
+      left: 0em;
+      padding: 1em;
+      display: block;
+      outline: none;
+      border: none;
+      svg:first-of-type {
+        color: #d64242;
+      }
+      svg:last-of-type {
+        color: hsl(113, 71%, 51%);
+        
+      }
+      &:hover{
+        box-shadow: 0 0 5px 1px #c8c8c9;
+        scale: 1.1;
+      }
+    }
+  }
+}
+
