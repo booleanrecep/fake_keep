@@ -21,7 +21,8 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",  
     "uuid": "^8.3.1"  ,
-    "webpack": "^5.37.1"
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0"
   },
   "devDependencies": {
     "@webpack-cli/serve": "^1.4.0",
@@ -29,9 +30,7 @@
     "prettier": "^2.0.5",
     "react-test-renderer": "^16.13.1",
     "sass-loader": "^11.1.1",
-    "webpack-dev-server": "^3.11.2",
-   
-    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2",   
     "style-loader": "^1.2.1",
     "@babel/core": "^7.9.6",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
