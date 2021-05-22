@@ -23,15 +23,8 @@
     "redux-thunk": "^2.3.0",  
     "uuid": "^8.3.1"  ,
     "webpack": "^5.37.1",
-    "webpack-cli": "^4.7.0"
-  },
-  "devDependencies": {
-    "@webpack-cli/serve": "^1.4.0",
-    "jest": "^25.5.4",
-    "prettier": "^2.0.5",
-    "react-test-renderer": "^16.13.1",
-    "sass-loader": "^11.1.1",
-    "webpack-dev-server": "^3.11.2",   
+    "webpack-cli": "^4.7.0",
+     "webpack-dev-server": "^3.11.2",   
     "style-loader": "^1.2.1",
     "@babel/core": "^7.9.6",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
@@ -49,6 +42,14 @@
     "eslint-plugin-react": "^7.19.0",
     "file-loader": "^6.1.0",
     "html-loader": "^1.1.0",   
-    "node-sass": "^5.0.0"
+    "node-sass": "^5.0.0",
+    "@webpack-cli/serve": "^1.4.0"
+  },
+  "devDependencies": {  
+    "jest": "^25.5.4",
+    "prettier": "^2.0.5",
+    "react-test-renderer": "^16.13.1",
+    "sass-loader": "^11.1.1"
+   
   }
 }
