@@ -1,12 +1,14 @@
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
 @mixin fontType {
-  font-family: "Roboto", sans-serif;
-  src: url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
+  font-family: 'Roboto', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
   font-style: normal;
 }
-$desktopBP: "screen and (min-width : 1024px)";
-$tabletBP: "screen and (max-width : 1024px)";
-$mobileBP: "screen and (max-width : 360px)";
+@import url('https://fonts.googleapis.com/css2?family=Padauk:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400&family=IBM+Plex+Mono:ital,wght@1,100&display=swap');
+$desktopBP: 'screen and (min-width : 1024px)';
+$tabletBP: 'screen and (max-width : 1024px)';
+$mobileBP: 'screen and (max-width : 360px)';
 $desktopWidth: 25%;
 $tabletWidth: 60%;
 $mobileWidth: 90%;
@@ -23,74 +25,100 @@ body,
 html {
   margin: 0;
   padding: 0;
-  // overflow: hidden;
+  background-color: #21094e;
 }
-
-.App {
-  background: url("./banner.png");
-  background-size: 100% 100%;
+#root {
+  display: grid;
+  grid-template-rows: auto 70%;
+  height: 100%;
 }
 
 .add-note-bar {
-  border-radius: 3px;
-  box-shadow: 0 0 5px 1px #c8c8c9;
-  position: absolute;
-  top: 6em;
-  left: 33%;
-  padding: 1em;
-  display: block;
-  outline: none;
-  border: none;
-  @include fontType;
+  padding: 15px;
+  // background-color: #4ca1a3;
+  box-shadow: none;
+  width: 350px;
+  height: fit-content;
+  margin: 0 auto;
+  background-color: #4ca1a3;
 
-  height: auto;
-  @media #{$desktopBP} {
-    width: $desktopWidth;
-  }
-  @media #{$tabletBP} {
-    width: $tabletWidth;
-    left: 20%;
-  }
-  @media #{$mobileBP} {
-    width: $mobileWidth;
-    left: 2%;
-  }
-
+  // min-height: 132px;
   .title {
+    color: black;
+    margin: 5px 5px 5px 5px;
     outline: none;
     border: none;
-    margin: 0 0 1em 0;
-    @include titleFont;
+    font-family: Padauk;
+    font-weight: 700;
+    font-size: 20px;
+
+    // display: none;
+    &::placeholder {
+      color: #000;
+    }
   }
   .desc {
-    @include descFont;
-  }
-  .desc:focus {
-    outline: none;
-    border: none;
-  }
+    margin: 5px 5px 5px 5px;
 
-  .bottom-tools {
-    position: relative;
-    bottom: 0em;
-    right: 0em;
-    margin: 1em 0 0 80%;
-    width: 7em;
-    svg {
-      width: 1.3em;
-      height: 1.3em;
-      cursor: pointer;
-      border-radius: 10px;
+    color: rgb(19, 16, 16);
+    font-family: Ruhl;
+    font-weight: 500;
+    font-size: 18px;
+    &:focus {
+      outline: none;
+      border: none;
     }
+  }
+  .bottom-tools {
+    margin: 5px 5px 5px 75%;
+
+    padding: 5px;
+    display: flex;
+    justify-content: flex-end;
+    // transition: 'all 0.1s ';
     svg:first-of-type {
-      color: #1a91da;
+      margin: 5px;
+      width: 22px;
+      height: 22px;
+      color: #0a750c;
+      border-radius: 10px;
+      background-color: #a5e1ad;
     }
     svg:last-of-type {
-      margin-left: 1em;
-      color: hsl(113, 71%, 51%);
+      margin: 5px;
+      color: #b61a63;
+      border-radius: 10px;
+      background-color: #a5e1ad;
+      width: 22px;
+      height: 22px;
     }
   }
 }
+.add-card {
+  align-self: center;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.note-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  position: absolute;
+  top: 35%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  // height: 100%;
+}
+
 .material-icons {
   background: none;
   color: none;
@@ -116,52 +144,27 @@ html {
     }
   }
 }
-#note-container {
-  position: absolute;
-  top: 16em;
-  left: 0;
-  height: 60vh;
-  width: 100vw;
-  justify-content: space-around;
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  margin: 0em;
-  padding: 0em;
-  padding-top: 0.5em;
-  row-gap: 1em;
-  background-color: #316a8e;
-  @media #{$mobileBP} {
-    grid-template-columns: auto;
+
+@media only screen and (max-width: 1024px) {
+  .note-container {
+    grid-template-columns: auto auto;
   }
-  .note-card {
-    position: relative;
-    top: 0em;
-    left: 0em;
-    margin-top: 0em;
-    padding-top: 0em;
-    .add-note-bar {
-      box-shadow: 0 0 0 0 #c8c8c9;
-      border-radius: 0.5em;
-      width: 300px;
-      position: relative;
-      top: 0em;
-      left: 0em;
-      padding: 1em;
-      display: block;
-      outline: none;
-      border: none;
-      svg:first-of-type {
-        color: #d64242;
-      }
-      svg:last-of-type {
-        color: hsl(113, 71%, 51%);
-        
-      }
-      &:hover{
-        box-shadow: 0 0 5px 1px #c8c8c9;
-        scale: 1.1;
-      }
+}
+// @media only screen and (max-width:600px){
+//   .note-container {
+//   grid-template-columns: auto auto ;
+//   grid-template-rows: auto auto auto;
+// }
+// }
+@media only screen and (max-width: 360px) {
+  .note-container {
+    grid-template-columns: auto;
+    top: 38%;
+  }
+  .add-note-bar {
+    width: 300px;
+    .bottom-tools {
+      margin: 5px 5px 5px 60%;
     }
   }
 }
-
