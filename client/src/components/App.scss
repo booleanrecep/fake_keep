@@ -28,21 +28,22 @@ html {
   background-color: #21094e;
 }
 #root {
-  display: grid;
-  grid-template-rows: auto 70%;
+  // display: grid;
+  // grid-template-rows: auto 70%;
   height: 100%;
 }
 
 .add-note-bar {
-  padding: 15px;
+  padding: 5px;
   // background-color: #4ca1a3;
-  box-shadow: none;
-  width: 350px;
+  width: 305px;
   height: fit-content;
   margin: 0 auto;
   background-color: #4ca1a3;
+  z-index: 3;
 
   // min-height: 132px;
+
   .title {
     color: black;
     margin: 5px 5px 5px 5px;
@@ -70,7 +71,7 @@ html {
     }
   }
   .bottom-tools {
-    margin: 5px 5px 5px 75%;
+    margin: 5px 5px 5px 70%;
 
     padding: 5px;
     display: flex;
@@ -106,16 +107,18 @@ html {
 
 .note-container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(auto-fill, 300px);
+
   grid-template-rows: auto;
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
+  grid-row-gap: 20px;
+  grid-column-gap: 40px;
   position: absolute;
-  top: 35%;
+  top: 20%;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
+  justify-content: center;
   // height: 100%;
 }
 
@@ -147,7 +150,7 @@ html {
 
 @media only screen and (max-width: 1024px) {
   .note-container {
-    grid-template-columns: auto auto;
+    // grid-template-columns: auto auto;
   }
 }
 // @media only screen and (max-width:600px){
@@ -158,8 +161,8 @@ html {
 // }
 @media only screen and (max-width: 360px) {
   .note-container {
-    grid-template-columns: auto;
-    top: 38%;
+    // grid-template-columns: auto;
+    // top: 38%;
   }
   .add-note-bar {
     width: 270px;
@@ -167,4 +170,13 @@ html {
       margin: 5px 5px 5px 60%;
     }
   }
+}
+
+.overlay {
+  top: 0;
+  padding-top: 40px;
+  height: 100%;
+  background-color: #213636;
+  opacity: 0.9;
+  z-index: 2;
 }

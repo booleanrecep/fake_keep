@@ -1,6 +1,6 @@
 import React from 'react';
 import { BiPalette } from 'react-icons/bi';
-import { AiOutlineFileAdd } from 'react-icons/ai';
+// import { AiOutlineFileAdd } from 'react-icons/ai';
 import { BsFillCircleFill } from 'react-icons/bs';
 import { BiCheckCircle } from 'react-icons/bi';
 import { Popover, OverlayTrigger } from 'react-bootstrap';
@@ -21,6 +21,7 @@ function AddCard(props) {
     bgColor: '#4ca1a3',
     fontColor: '',
     id: '',
+    overlayToggle: false,
     content: {
       title: '',
       description: ''
@@ -53,6 +54,7 @@ function AddCard(props) {
 
     setState(prevState => ({
       ...prevState,
+      overlayToggle: true,
       display: 'block',
       marginBottom: '0em',
       id: ID
@@ -64,6 +66,8 @@ function AddCard(props) {
       marginBottom: '',
       bgColor: '#4ca1a3',
       fontColor: '',
+      overlayToggle: false,
+
       id: '',
       content: {
         title: '',
@@ -101,13 +105,21 @@ function AddCard(props) {
   });
   return (
     <div
-      className="add-card"
+      // className=""
+      className={
+        state.overlayToggle === false ? 'add-card' : 'add-card' + ' overlay'
+      }
       //  onClick={hideTools}
     >
       <div
         className="add-note-bar"
         onClick={showTools}
-        style={{ backgroundColor: state.bgColor }}
+        style={{
+          backgroundColor: state.bgColor,
+
+          boxShadow:
+            state.overlayToggle === false ? 'none' : '0px 0px 2px 1px #814ca3'
+        }}
       >
         <div
           name="title"

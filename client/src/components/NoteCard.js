@@ -91,8 +91,16 @@ function NoteCard(props) {
         <div
           name="title"
           onInput={handleChange}
+          // onFocus={e =>
+          //   (e.target.innerText =
+          //     state.content.title === '' ? '' : state.content.title)
+          // }
+          // onBlur={e =>
+          //   (e.target.innerText =
+          //     state.content.title === '' ? 'Title' : state.content.title)
+          // }
           className="title"
-          aria-label="Başlık"
+          aria-label="Title"
           contentEditable="true"
           style={{
             transition: 'all 1s ease',
@@ -106,6 +114,10 @@ function NoteCard(props) {
         <div
           name="description"
           onInput={handleChange}
+          // onFocus={e =>
+          //   (e.target.innerText =
+          //     state.content.description === '' ? '' : state.content.description)
+          // }
           className="desc"
           contentEditable="true"
           aria-multiline="true"
@@ -127,7 +139,7 @@ function NoteCard(props) {
           <AiOutlineDelete onClick={handleRemove} />
           <OverlayTrigger
             trigger="click"
-            placement="right"
+            placement="bottom"
             show={state.showPopover}
             overlay={
               <Popover id="popover-basic">
